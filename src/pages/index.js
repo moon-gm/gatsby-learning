@@ -27,7 +27,7 @@ export default function Home({allData}) {
 						Next Learning
 					</p>
 					<p className={Styles.subTitle}>
-						〜 This Site 〜<br/>
+						〜 ↑ Click to Next.js site ↑ 〜<br/>
 						◀︎ Swipe here ▶︎
 					</p>
 				</div>
