@@ -1,0 +1,56 @@
+/** レイアウト設定 **/
+@import 'variable';
+:global {
+	// サイドメニューエリア
+	.aside {
+		color: $white;
+		overflow: scroll;
+		position: fixed;
+		top: $header-height;
+		right: 0;
+		width: 35%;
+		height: 100%;
+		padding: 20px;
+		background: $dark-purple-skelton;
+		backdrop-filter: blur(10px);
+		z-index: $z-index-aside;
+		@media screen and (max-width: $sp-max-width) {
+			width: 100%;
+			border-bottom: 1px solid $light-blue;
+		}
+	}
+
+	// コンテンツエリア
+	.contents {
+		width: 100%;
+
+		// ヘッダーエリア
+		.header {
+			max-width: $screen-max-width;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+			padding: 0 20px;
+			color: $white;
+			background: $dark-purple;
+			width: 100%;
+			height: $header-height;
+			border-bottom: 1px solid $white;
+			z-index: $z-index-header;
+			@media screen and (max-width: $sp-max-width) {
+				padding: 0;
+				padding-left: 10px;
+			}
+
+		}
+
+		// メインエリア
+		.main {
+			padding-top: $header-height;
+			width: 100%;
+			background: $white;
+		}
+	}
+}

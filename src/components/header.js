@@ -1,42 +1,72 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React from 'react';
+import Router from './../config/routes';
+import logo from './../images/gatsby-icon.png'
+import Styles from './../sass/parts/header.module.scss';
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+const Header = ({funcs, states, allData}) => {
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+	return (
+		<header className="header">
+			<ul className={Styles.headerList}>
+
+				{/* ヘッダーロゴ - start - */}
+					<li className={`${Styles.headerLogo} ${Styles.item}`}>
+						<img
+							src={logo}
+							alt="logo"
+							className={`${Styles.animation} ${Styles.logo}`}
+						/>
+					</li>
+				{/* ヘッダーロゴ - end - */}
+
+				{/* ヘッダータイトル - start - */}
+					<li className={`${Styles.headerTitle} ${Styles.item}`}>
+						<Router.Header
+							allData={allData}
+							states={states}
+						/>
+					</li>
+				{/* ヘッダータイトル - end - */}
+
+				{/* メニューボタンPC - start - */}
+					{
+						states.menu === "show" && (
+							<li
+								className={Styles.menuBtnPC}
+								onClick={funcs[0].Menu}
+								id="menuBtnPC"
+								disabled
+							>
+								Close Menu ▲
+							</li>
+						)
+					}
+					{
+						states.menu === "hide" && (
+							<li
+								className={Styles.menuBtnPC}
+								onClick={funcs[0].Menu}
+								id="menuBtnPC"
+							>
+								Open Menu ▼
+							</li>
+						)
+					}
+				{/* メニューボタン - end - */}
+
+				{/* メニューボタンSP - start - */}
+					<li
+						className={Styles.menuBtnSP}
+						id="menuBtnSP"
+						onClick={funcs[0].Menu}
+					>
+						≡
+					</li>
+				{/* メニューボタンSP - end - */}
+
+			</ul>
+		</header>
+);
 }
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header
+export default Header;

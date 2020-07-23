@@ -1,0 +1,33 @@
+/** サイドエリア設定 **/
+// 変数設定
+@import './../variable';
+
+// スクロールエリア設定
+.asideScroll {
+	height: auto;
+}
+
+// リストの設定
+.sideList {
+	font-size: 18px;
+	margin-bottom: 5px;
+	a:hover {
+		background: unset;
+	}
+
+	// 文字の設定
+	&Text {
+		color: $white;
+		display: inline;
+		padding: 5px;
+		&:hover {
+			background: $white-skelton;
+		}
+	}
+
+	// 子リストの設定
+	&Children {
+		margin-left: 1em;
+	}
+}
+

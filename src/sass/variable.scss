@@ -1,0 +1,58 @@
+/** 変数設定 **/
+// width定義
+$sp-max-width: 768px;
+$screen-max-width: 1280px;
+$screen-min-width: 330px;
+
+// height定義
+$header-height: 50px;
+
+// margin設定
+$m-bottom: 20px;
+$m-side: 40px;
+
+// カラー定義
+$light-blue: #61dafb;
+$white: white;
+$black: black;
+$blue: rgb(121, 182, 242);
+$yellow: rgb(250, 200, 99);
+$green: rgb(141, 200, 145);
+$purple: rgb(197, 165, 197);
+$orange: rgb(255, 139, 80);
+$brown: rgb(169, 138, 35);
+
+$dark-purple: rgb(75, 0, 128);
+$emerald: rgb(0, 130, 84);
+$red-pink: rgb(252, 146, 158);
+$red-purple: rgb(169, 5, 150);
+$dark-grey: #282c34;
+$light-black: rgb(20, 20, 20);
+
+$dark-purple-skelton: rgba(75, 0, 128, 0.7);
+$dark-grey-skelton: rgba(0, 0, 0, 0.7);
+$white-skelton: rgba(255, 255, 255, 0.5);
+$skelton: rgba(255, 255, 255, 0);
+
+// z-index定義
+$z-index-aside: 10;
+$z-index-header: 10;
+
+// アニメーション定義
+@keyframes spin {
+	from {
+	  transform: rotate(0deg);
+	}
+	to {
+	  transform: rotate(360deg);
+	}
+}
+
+@keyframes fade {
+	from {
+		filter: drop-shadow(0px 0px 1px $dark-purple);
+	}
+	to {
+		filter: drop-shadow(0px 0px 20px $dark-purple);
+	}
+}

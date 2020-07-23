@@ -1,0 +1,40 @@
+/** TOPページ設定 **/
+// 変数設定
+@import './../variable';
+
+.AppLogo {
+  height: 30vmin;
+  margin: 30px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .AppLogo {
+    animation: fade infinite 10s linear;
+  }
+}
+
+.AppHeader {
+  background-color: $white;
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.mainTitle {
+	color: $dark-purple;
+	font-size: 50px;
+	text-align: center;
+	@media screen and (max-width: $sp-max-width) {
+		font-size: 30px;
+	}
+
+	.subTitle {
+		font-size: 25px;
+		@media screen and (max-width: $sp-max-width) {
+			font-size: 20px;
+		}
+	}
+}
+

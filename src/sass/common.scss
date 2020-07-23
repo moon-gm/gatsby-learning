@@ -1,0 +1,307 @@
+/** 共通設定 **/
+@import 'variable';
+:global {
+	// フレックス設定
+	.flex-box {
+		display: flex;
+		justify-content: space-around;
+		&--space-between {
+			justify-content: space-between;
+		}
+		&-no-sp {
+			@media screen and (max-width: $sp-max-width) {
+				display: block;
+			}
+		}
+	}
+	// 表示設定
+	.inline-block {
+		display: inline-block;
+	}
+
+	// ヘッダー固定分の高さ分のスペーサー
+	.spacer-for-header {
+		height: $header-height+15px;
+		padding: 5px;
+		margin: 0 $m-side;
+			@media screen and (max-width: $sp-max-width) {
+				margin: 0;
+			}
+	}
+
+	// ページ設定
+	.page-layout {
+		width: 100%;
+		height: 100%;
+		background: $white;
+		padding: 20px;
+
+		// 見出し１
+		.h1 {
+			font-size: 30px;
+			color: $black;
+			margin-bottom: $m-bottom;
+			@media screen and (max-width: $sp-max-width) {
+				font-size: 20px;
+			}
+		}
+
+		// 見出し２
+		.h2 {
+			font-size: 25px;
+			margin: 0 20px $m-bottom;
+			padding: 0 10px;
+			padding-bottom: 3px;
+			color: $white-skelton;
+			background: $dark-purple;
+			text-shadow: 1px 1px 1px $white, -1px -1px 15px $white;
+			box-shadow: 1px 1px 5px $dark-purple, -1px -1px 5px $dark-purple;
+			border-radius: 4px;
+			@media screen and (max-width: $sp-max-width) {
+				font-size: 20px;
+				margin: 0 0 $m-bottom;
+			}
+		}
+
+		// 見出し３
+		.h3 {
+			color: $dark-purple;
+			font-size: 20px;
+			margin: 0 20px $m-bottom;
+			border-bottom: 3px solid $dark-purple;
+			@media screen and (max-width: $sp-max-width) {
+				font-size: 20px;
+				margin: 0 0 $m-bottom;
+			}
+		}
+
+		// 段落
+		.p {
+			padding: 5px;
+			margin: 0 $m-side $m-bottom;
+			@media screen and (max-width: $sp-max-width) {
+				margin: 0 0 $m-bottom;
+			}
+		}
+
+		// 画像挿入
+		.img-box {
+			margin: 0 $m-side $m-bottom;
+			@media screen and (max-width: $sp-max-width) {
+				margin: 0 0 $m-bottom;
+			}
+			img {
+				width: 100%;
+				height: auto;
+				max-width: $sp-max-width;
+				border: 1px solid $black;
+				@media screen and (max-width: $sp-max-width) {
+					max-width: 300px;
+				}
+			}
+		}
+
+		// テーブル挿入
+		.table-box {
+			margin: 0 $m-side $m-bottom;
+			width: 100%;
+			overflow: scroll;
+			@media screen and (max-width: $sp-max-width) {
+				margin: 0 0 $m-bottom;
+			}
+			table {
+				border-collapse: separate;
+				width: 1000px;
+			}
+			th,td {
+				padding: 10px 20px;
+			}
+
+			th {
+				color: $dark-purple;
+				border-bottom: 2px solid $dark-purple;
+				text-align: left;
+			}
+			td {
+				color: $black;
+				border-bottom: 1px dotted $black;
+				&::before {
+					content: "-";
+					padding-right: 0.5em;
+				}
+				&:first-child {
+					&::before {
+						content: "▶︎";
+						padding-right: 3px;
+					}
+				}
+			}
+
+		}
+
+		// ページジャンプリンク
+		.page-jump {
+			color: $blue;
+			&:hover {
+				background: $dark-grey-skelton;
+				padding: 0 5px;
+			}
+		}
+
+		// コード挿入
+		.code {
+			font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+			monospace;
+			display:inline-block;
+			width: 90%;
+			min-width: 300px;
+			overflow: scroll;
+			border: 1px solid $black;
+			@media screen and (max-width: $sp-max-width) {
+				width: 100%;
+			}
+			pre {
+				border: 1px solid $white;
+			}
+
+			// 右スペース
+			.space {
+				padding-right: 0.5em;
+			}
+		}
+
+		// コマンド挿入
+		.command {
+			background: $dark-grey-skelton;
+			color: $white;
+			font-weight: bold;
+			padding: 2px 5px;
+			border-radius: 4px;
+			display: inline-block;
+		}
+
+		// カラー
+		.purple {
+			color: $purple;
+		}
+		.blue {
+			color: $blue;
+		}
+		.red {
+			color: $red-pink;
+		}
+		.yellow {
+			color: $yellow;
+		}
+		.green {
+			color: $green;
+		}
+		.white {
+			color: $white;
+		}
+		.brown {
+			color: $brown;
+		}
+		.orange {
+			color: $orange;
+		}
+		.emerald {
+			color: $emerald;
+		}
+
+		// インデント
+		.indent1 {
+			padding-left: 2em;
+		}
+		.indent2 {
+			padding-left: 4em;
+		}
+		.indent3 {
+			padding-left: 6em;
+		}
+		.indent4 {
+			padding-left: 8em;
+		}
+		.indent5 {
+			padding-left: 10em;
+		}
+
+		// コードハイライト設定
+		/* Tomorrow Night Theme */
+		/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+		/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+		/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+
+		/* Tomorrow Comment */
+		.hljs-comment,
+		.hljs-quote {
+		color: #969896;
+		}
+
+		/* Tomorrow Red */
+		.hljs-variable,
+		.hljs-template-variable,
+		.hljs-tag,
+		.hljs-name,
+		.hljs-selector-id,
+		.hljs-selector-class,
+		.hljs-regexp,
+		.hljs-deletion {
+		color: #cc6666;
+		}
+
+		/* Tomorrow Orange */
+		.hljs-number,
+		.hljs-built_in,
+		.hljs-builtin-name,
+		.hljs-literal,
+		.hljs-type,
+		.hljs-params,
+		.hljs-meta,
+		.hljs-link {
+		color: #de935f;
+		}
+
+		/* Tomorrow Yellow */
+		.hljs-attribute {
+		color: #f0c674;
+		}
+
+		/* Tomorrow Green */
+		.hljs-string,
+		.hljs-symbol,
+		.hljs-bullet,
+		.hljs-addition {
+		color: #b5bd68;
+		}
+
+		/* Tomorrow Blue */
+		.hljs-title,
+		.hljs-section {
+		color: #81a2be;
+		}
+
+		/* Tomorrow Purple */
+		.hljs-keyword,
+		.hljs-selector-tag {
+		color: #b294bb;
+		}
+
+		.hljs {
+		display: block;
+		overflow-x: auto;
+		background: #1d1f21;
+		color: #c5c8c6;
+		padding: 0.5em;
+		}
+
+		.hljs-emphasis {
+		font-style: italic;
+		}
+
+		.hljs-strong {
+		font-weight: bold;
+		}
+
+	}
+}

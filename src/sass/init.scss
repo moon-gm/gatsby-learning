@@ -1,0 +1,28 @@
+/** 初期設定 **/
+@import 'variable';
+
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	line-height: 1.5;
+	font-size: 15px;
+	color: $black;
+	background: $white;
+	max-width: $screen-max-width;
+	min-width: $screen-min-width;
+	margin: 0 auto;
+}
+
+a {
+	text-decoration: none;
+	color: $dark-purple;
+	&:hover {
+		color: $white;
+		background: $dark-grey-skelton;
+		padding: 0 5px;
+	}
+}

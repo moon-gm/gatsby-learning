@@ -1,0 +1,63 @@
+/** ヘッダーエリア設定 **/
+// 変数設定
+@import './../variable';
+
+// ヘッダーの各パーツ設定
+.headerList {
+	.item {
+		display:inline;
+	}
+}
+
+// PCメニューボタン設定
+.menuBtnPC {
+	position: absolute;
+	top: 10px;
+	right: 24px;
+	font-size: 20px;
+	@media screen and (max-width: $sp-max-width){
+		display: none;
+	}
+}
+
+// SPメニューボタン（≡）設定
+.menuBtnSP {
+	display: none;
+	@media screen and (max-width: $sp-max-width){
+		display: block;
+		position: absolute;
+		top: -18px;
+		right: 10px;
+		font-size: 50px;
+	}
+}
+
+// Reactヘッダーロゴ設定
+.headerLogo {
+	position: relative;
+	top: 6px;
+	left: 0px;
+	@media screen and (max-width: $sp-max-width){
+		top: 7.5px;
+	}
+	.logo {
+		width: 100%;
+		height: auto;
+		max-width: 35px;
+		filter: drop-shadow(0px 0px 6px $white);
+	}
+}
+
+// ヘッダータイトル設定
+.headerTitle {
+	font-size: 20px;
+	padding-left: 10px;
+	position: relative;
+	top: -4px;
+	left: 0px;
+}
+
+// アニメーション設定
+.animation {
+	animation: spin infinite 20s linear;
+}

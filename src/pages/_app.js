@@ -1,11 +1,5 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-import React from 'react'
-import PropTypes from "prop-types"
+// Global-CSS設定
+import './../sass/App.scss'
 
 // 各種コンポーネント取得
 import Parts from './../config/parts';
@@ -59,9 +53,7 @@ class Layout extends React.Component {
 			allData: this.allData
 		}
 		// 子要素を再生成してPropsを渡す設定
-    const childrenWithProps = React.Children.map(this.props.children, (child) =>
-      React.cloneElement(child, { allData: this.allData })
-    );
+		const newChildren = React.cloneElement(this.props.children, additionalProps);
 
 		return (
 			<div className="flex-box">
@@ -86,7 +78,7 @@ class Layout extends React.Component {
 
 					{/* メインエリア */}
 					<main className="main">
-						{childrenWithProps}
+						{newChildren}
 					</main>
 
 				</div>
@@ -97,8 +89,12 @@ class Layout extends React.Component {
 
 }
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
-export default Layout
+export default function App({ Component, pageProps }) {
+    return (
+		<Layout>
+			<Component
+				{...pageProps}
+			/>
+		</Layout>
+	);
+  }
