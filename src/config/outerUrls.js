@@ -19,6 +19,7 @@ export default {
 	// Gatsby Official Page
 	GatsbyOfficial: {
 		Top: "https://www.gatsbyjs.org/",
+		Template: "https://www.gatsbyjs.org/starters/?v=2",
 	},
 
 	// 自作サイト

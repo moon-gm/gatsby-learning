@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from './../../components/layout'
 import SEO from './../../components/seo'
+import screen from './../../images/screen.png'
 import urls from './../../config/outerUrls'
 import codes from './../../config/codes'
 import Parts from './../../config/parts'
@@ -11,24 +12,28 @@ const Environment = ({allData}) => {
 			<SEO title="1-1" />
 			<div className="page-layout">
 
+				<p className="p">
+					Gatsby.jsはFacebook社が開発したReactフレームワークである。
+					ブログなどのサーバーサイドを用いない静的なサイトを作成するのに適している。
+					GraphQLというAPIを用いてジェネレイトするのが最大の特徴。
+				</p>
 				<h2 className="h2">
-					1. create-next-appをインストール
+					1. gatsby-cliをインストール
 				</h2>
 					<p className="p">
-						{console.log(allData)}
 						以下をターミナルに入力してインストール
 					</p>
 					<p className="p">
 						<span className="command">
-							$ npm install -g create-react-app
+							$ npm install -g gatsby-cli
 						</span>
 					</p>
 					<p className="p">
-						以下でインストールされているか確認（プロジェクトを作成するようにコンソールメッセージが出ればOK）
+						以下でインストールされているか確認
 					</p>
 					<p className="p">
 						<span className="command">
-							$ create-next-app -v
+							$ gatsby -v
 						</span>
 					</p>
 
@@ -39,19 +44,16 @@ const Environment = ({allData}) => {
 						プロジェクトを作成するディレクトリに移動し、以下のコマンドを実行
 					</p>
 					<p className="p">
-						以下でインストールされているか確認（プロジェクトを作成するようにコンソールメッセージが出ればOK）
-					</p>
-					<p className="p">
 						<span className="command">
-							$ create-next-app [作成するプロジェクト名]
+							$ gatsby new [作成するプロジェクト名]
 						</span>
 					</p>
 					<p className="p">
-						※ 以下を入力した場合、create-next-appをローカルインストールせずにプロジェクト作成できる
+						※ 以下を入力した場合、gatsby-cliをローカルインストールせずにプロジェクト作成できる
 					</p>
 					<p className="p">
 						<span className="command">
-							$ npx create-next-app [作成するプロジェクト名]
+							$ npx gatsby new [作成するプロジェクト名]
 						</span>
 					</p>
 
@@ -63,7 +65,7 @@ const Environment = ({allData}) => {
 					</p>
 					<p className="p">
 						<span className="command">
-							$ npm run dev
+							$ gatsby develop / npm run develop
 						</span>
 					</p>
 					<p className="p">
@@ -74,10 +76,20 @@ const Environment = ({allData}) => {
 					4. 画面表示確認
 				</h2>
 					<p className="p">
-						「http://localhost:3000」にアクセスして以下の画面表示ができていれば成功
+						「http://localhost:8000」にアクセスして以下の画面表示ができていれば成功
+					</p>
+					<p className="p">
+						※今回、デフォルトを使用し、「gatsby default starter」というテーマを用いているため以下の画面となる<br/>
+						他にも多数テンプレートが公式で用意されている
+					</p>
+					<p className="p">
+						<Parts.OuterLink
+							url={urls.GatsbyOfficial.Template}
+							linkText="? Gatsby公式スターターテンプレート"
+						/>
 					</p>
 					<div className="img-box">
-						<img src="/screen.png" alt="初期表示画面" />
+						<img src={screen} alt="初期表示画面" />
 					</div>
 
 				<h2 className="h2">
@@ -85,12 +97,11 @@ const Environment = ({allData}) => {
 				</h2>
 					<p className="p">
 						<span className="command">
-							$ npm install node-sass --save --dev<br/>
-							$ npm install @zeit/next-sass --save
+							$ npm install node-sass gatsby-plugin-sass --save 
 						</span>
 					</p>
 					<p className="p">
-						上記コマンド入力し、ルートディレクトリ の「next.config.js」に以下のコードを設定することで使用可能となる
+						上記コマンド入力し、ルートディレクトリ の「gatsby-config.js」に以下のコードを設定することで使用可能となる
 					</p>
 					<Parts.CodeHighlighter
 						language={codes.languages.jsx}
@@ -104,34 +115,19 @@ const Environment = ({allData}) => {
 						6-1. プロダクション用をビルド
 					</h3>
 						<p className="p">
-							以下のコマンドを実行で、プロダクション用ビルドがプロジェクトディレクトリの「.next」フォルダの中に作成される
+							以下のコマンドを実行で、プロダクション用ビルドがプロジェクトディレクトリの「public」フォルダの中に作成される
 						</p>
 						<p className="p">
 							<span className="command">
 								$ npm run build
 							</span>
 						</p>
-						<p className="p">
-							サーバーサイドの処理がない場合は、上記コマンドの後に以下のコマンドを実行すると、「out」フォルダが作成され、buildファイルが格納される
-						</p>
-						<p className="p">
-							<span className="command">
-								$ npm run export
-							</span>
-						</p>
-						<p className="p">
-							コマンドがない場合は、「package.json」に以下のコードを追加することで、実行できるようになる
-						</p>
-						<Parts.CodeHighlighter
-							language={codes.languages.jsx}
-							codeString={codes.pages.Page1.Section1.code2}
-						/>
 
 					<h3 className="h3">
 						6-2. ローカルで確認
 					</h3>
 						<p className="p">
-							以下のコマンドを実行し、http://localhost:3000 にアクセスすることでプロダクション用ビルドの内容を確認できる
+							以下のコマンドを実行し、http://localhost:5000 にアクセスすることでプロダクション用ビルドの内容を確認できる
 						</p>
 						<p className="p">
 							<span className="command">
@@ -139,33 +135,11 @@ const Environment = ({allData}) => {
 							</span>
 						</p>
 					<h3 className="h3">
-						6-3. Gihub Pagesにデプロイ
+						6-3. サーバーにデプロイ
 					</h3>
 						<p className="p">
-							上記の「out」フォルダをgitにプッシュして公開するのみでOK
+							上記の「public」フォルダをgitにプッシュして公開するのみでOK
 						</p>
-					<h3 className="h3">
-						6-4. Vercelの公式サイトでデプロイ
-					</h3>
-						<p className="p">
-							以下の手順にしたがって作業するだけで、Next.jsのアプリをデプロイできる<br/>
-							②以降の作業はチュートリアルがあるので、すぐに分かる
-						</p>
-						<p className="p">
-							① プロジェクトをGithub/Gitlabなどにプッシュする<br/>
-							② Vercelの公式デプロイ用サイトにアクセスし、上記でプッシュしたアカウントで登録する<br/>
-							③ 登録してログインしたら、上記プロジェクトのリポジトリにアクセスできるようにする<br/>
-							④ 何のフレームワークを使用しているか選択（Next.js）<br/>
-							⑤ ビルド時のコマンドを入力（デフォルトを変えていなければ、入力しなくてOK）<br/>
-							⑥ 内容を確認し、デプロイボタンを押下するのみで、コマンドを実行し、デプロイしてくれる<br/>
-						</p>
-						<p className="p">
-							<Parts.OuterLink
-								url={urls.NextOfficial.Deploy}
-								linkText="? Vercel公式デプロイ"
-							/>
-						</p>
-
 			</div>
 		</Layout>
 	);

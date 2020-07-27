@@ -4,8 +4,7 @@ export default {
 		Top: null,
 		Page1: {
 			Section1: {
-				code1: "const withSass = require('@zeit/next-sass');\nmodule.exports = withSass({\n	cssModules: true,\n});",
-				code2: "\"scripts\": {\n    \"export\": \"next export\"\n},",
+				code1: "plugins: [`gatsby-plugin-sass`]",
 			},
 			Section2: {
 				code1: "",
